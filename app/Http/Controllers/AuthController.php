@@ -87,21 +87,13 @@ class AuthController extends Controller
     ], 200);
   }
 
-  //token things
-  private function base64url_encode(String $data): String
+  public function me(Request $request)
   {
-    $base64 = base64_encode($data); // ubah json string menjadi base64
-    $base64url = strtr($base64, '+/', '-_'); // ubah char '+' -> '-' dan '/' -> '_'
+    $mahasiswa = $request->mahasiswa;
 
-    return rtrim($base64url, '='); // menghilangkan '=' pada akhir string
+    return response()->json([
+      'status' => 'Success',
+      'message' => $mahasiswa,
+    ], 200);
   }
-  // public function me(Request $request)
-  // {
-  //   $user = $request->user;
-
-  //   return response()->json([
-  //     'status' => 'Success',
-  //     'message' => $user,
-  //   ], 200);
-  // }
 }

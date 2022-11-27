@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Mahasiswa;
 use Closure;
 use Exception;
-use App\Models\User;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Firebase\JWT\ExpiredException;
@@ -36,9 +36,9 @@ class JwtMiddleware
       ], 400);
     }
 
-    $user = User::find($credentials->sub);
+    $mahasiswa = Mahasiswa::find($credentials->sub);
 
-    $request->user = $user;
+    $request->mahasiswa = $mahasiswa;
     return $next($request);
   }
 }
