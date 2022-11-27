@@ -22,7 +22,7 @@ class MahasiswaController extends Controller
   {
     $mahasiswa = $request->mahasiswa;
     $mahasiswa->matakuliah()->attach($request->mkId);
-    
+
     return response()->json([
       'success' => true,
       'message' => 'New matkul added!',
@@ -32,4 +32,16 @@ class MahasiswaController extends Controller
     ]);
   }
   //
+
+  public function getAllMahasiswa()
+  {
+    $mahasiswa = Mahasiswa::get();
+    return response()->json([
+      'status' => 'Success',
+      'message' => 'all users grabbed',
+      'data' => [
+        'users' => $mahasiswa,
+      ]
+    ], 200);
+  }
 }

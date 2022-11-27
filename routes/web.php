@@ -29,4 +29,5 @@ $router->group(['prefix' => 'mata-kuliah'], function () use ($router) {
 
 $router->group(['prefix' => 'mahasiswa'], function () use ($router) {
   $router->post('/matkul/{mkId}', ['middleware' => 'jwt.auth','uses' => 'MahasiswaController@addMataKuliah']);
+  $router->get('/', ['uses' => 'MahasiswaController@getAllMahasiswa']);
 });

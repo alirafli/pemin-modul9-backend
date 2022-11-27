@@ -87,6 +87,10 @@ $app->configure('app');
 $app->routeMiddleware([
   'jwt.auth' => App\Http\Middleware\JwtMiddleware::class,
 ]);
+
+$app->middleware([ // disini
+  App\Http\Middleware\CorsMiddleware::class
+]);
 /*
 |--------------------------------------------------------------------------
 | Register Service Providers
