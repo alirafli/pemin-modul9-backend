@@ -18,7 +18,7 @@ class Mahasiswa extends Model implements AuthenticatableContract, AuthorizableCo
    * @var string[]
    */
   protected $fillable = [
-    'nim', 'nama', 'angkatan', 'token', 'password'
+    'nim', 'nama', 'angkatan', 'password','token'
   ];
 
   /**
