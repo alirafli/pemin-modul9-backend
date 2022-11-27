@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Mahasiswa;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -27,4 +28,8 @@ class MataKuliah extends Model implements AuthenticatableContract, AuthorizableC
    * @var string[]
    */
   protected $hidden = [];
+  public function mahasiswa()
+  {
+    return $this->belongsToMany(Mahasiswa::class, 'mahasiswa_matakuliah', 'mhsNim', 'mkId');
+  }
 }

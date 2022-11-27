@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+namespace App\Models;
+
+use App\Models\MataKuliah;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -18,7 +21,7 @@ class Mahasiswa extends Model implements AuthenticatableContract, AuthorizableCo
    * @var string[]
    */
   protected $fillable = [
-    'nim', 'nama', 'angkatan', 'password','token'
+    'nim', 'nama', 'angkatan', 'password', 'token'
   ];
 
   /**
@@ -29,4 +32,9 @@ class Mahasiswa extends Model implements AuthenticatableContract, AuthorizableCo
   protected $hidden = [
     'password',
   ];
+
+  public function matakuliah()
+  {
+    return $this->belongsToMany(MataKuliah::class, 'mahasiswa_matakuliah', 'mkId', 'mhsNim');
+  }
 }
