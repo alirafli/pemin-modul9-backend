@@ -22,3 +22,7 @@ $router->group(['prefix' => 'auth'], function () use ($router) {
   $router->post('/login', ['uses' => 'AuthController@login']);
   $router->get('/me', ['middleware' => 'jwt.auth', 'uses' => 'AuthController@me']); //
 });
+
+$router->group(['prefix' => 'mata-kuliah'], function () use ($router) {
+  $router->post('/', ['uses' => 'MataKuliahController@createMataKuliah']);
+});
