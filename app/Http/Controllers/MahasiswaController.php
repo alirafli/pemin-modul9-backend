@@ -44,4 +44,15 @@ class MahasiswaController extends Controller
       ]
     ], 200);
   }
+
+  public function getMahasiswaByNim(Request $request)
+  {
+    $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+
+    return response()->json([
+      'status' => 'Success',
+      'message' => 'get one user',
+      'data' => $mahasiswa,
+    ], 200);
+  }
 }

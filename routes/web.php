@@ -32,4 +32,5 @@ $router->group(['prefix' => 'mahasiswa'], function () use ($router) {
   $router->post('/matkul/{mkId}', ['middleware' => 'jwt.auth','uses' => 'MahasiswaController@addMataKuliah']);
   $router->get('/', ['uses' => 'MahasiswaController@getAllMahasiswa']);
   $router->get('/profile', ['middleware' => 'jwt.auth', 'uses' => 'AuthController@me']); //
+  $router->get('/{nim}', ['uses' => 'MahasiswaController@getMahasiswaByNim']);
 });
