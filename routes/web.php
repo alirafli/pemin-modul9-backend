@@ -23,11 +23,13 @@ $router->group(['prefix' => 'auth'], function () use ($router) {
   $router->get('/me', ['middleware' => 'jwt.auth', 'uses' => 'AuthController@me']); //
 });
 
-$router->group(['prefix' => 'mata-kuliah'], function () use ($router) {
+$router->group(['prefix' => 'matakuliah'], function () use ($router) {
   $router->post('/', ['uses' => 'MataKuliahController@createMataKuliah']);
+  $router->get('/', ['uses' => 'MataKuliahController@getAllMatkul']);
 });
 
 $router->group(['prefix' => 'mahasiswa'], function () use ($router) {
   $router->post('/matkul/{mkId}', ['middleware' => 'jwt.auth','uses' => 'MahasiswaController@addMataKuliah']);
   $router->get('/', ['uses' => 'MahasiswaController@getAllMahasiswa']);
+  $router->get('/profile', ['middleware' => 'jwt.auth', 'uses' => 'AuthController@me']); //
 });

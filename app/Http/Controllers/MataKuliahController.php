@@ -31,5 +31,14 @@ class MataKuliahController extends Controller
       ]
     ]);
   }
+
+  public function getAllMatkul(Request $request)
+  {
+    $matkul = MataKuliah::get();
+
+    return response()->json([
+      'matakuliah' => $matkul
+    ]);
+  }
   //
 }
