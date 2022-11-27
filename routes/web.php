@@ -14,5 +14,10 @@
 */
 
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+  return $router->app->version();
+});
+
+$router->group(['prefix' => 'auth'], function () use ($router) {
+  $router->post('/register', ['uses' => 'AuthController@register']);
+  $router->post('/login', ['uses' => 'AuthController@login']);
 });
