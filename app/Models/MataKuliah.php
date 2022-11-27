@@ -30,6 +30,6 @@ class MataKuliah extends Model implements AuthenticatableContract, AuthorizableC
   protected $hidden = [];
   public function mahasiswa()
   {
-    return $this->belongsToMany(Mahasiswa::class, 'mahasiswa_matakuliah', 'mhsNim', 'mkId');
+    return $this->belongsToMany(Mahasiswa::class, 'mahasiswa_matakuliah', 'mkId', 'mhsNim');
   }
 }
