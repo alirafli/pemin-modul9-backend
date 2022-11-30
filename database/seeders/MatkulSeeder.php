@@ -17,7 +17,11 @@ class MatkulSeeder extends Seeder
   {
     //
     $matakuliahs = [
-      ['nama' => 'Pemrograman Dasar'], ['nama' => 'Pemrograman Lanjut'],, ['nama' => 'Algoritma dan Struktur Data'], ['nama' => 'Sistem Basis Data'], ['nama' => 'Jaringan Komputer Dasar']
+      ['nama' => 'Pemrograman Dasar'],
+      ['nama' => 'Pemrograman Lanjut'],
+      ['nama' => 'Algoritma dan Struktur Data'],
+      ['nama' => 'Sistem Basis Data'],
+      ['nama' => 'Jaringan Komputer Dasar']
     ];
     MataKuliah::insert($matakuliahs);
   }

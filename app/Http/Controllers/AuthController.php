@@ -23,7 +23,7 @@ class AuthController extends Controller
   {
     $payload = [
       'iss' => 'lumen-jwt', //issuer of the token
-      'sub' => $mahasiswa->id, //subject of the token
+      'sub' => $mahasiswa->nim, //subject of the token
       'iat' => time(), //time when JWT was issued.
       'exp' => time() + 60 * 60 //time when JWT will expire
     ];
@@ -56,10 +56,10 @@ class AuthController extends Controller
 
   public function login(Request $request)
   {
-    $nim = $request->nim;
+    // $nim = $request->nim;
     $password = $request->password;
 
-    $mahasiswa = Mahasiswa::where('nim', $nim)->first();
+    $mahasiswa = Mahasiswa::find($request->nim);
 
     if (!$mahasiswa) {
       return response()->json([
@@ -81,6 +81,7 @@ class AuthController extends Controller
     return response()->json([
       'status' => 'Success',
       'message' => 'successfully login',
+      'mahasiswa' => $mahasiswa,
       'data' => [
         'user' => $mahasiswa,
       ]
