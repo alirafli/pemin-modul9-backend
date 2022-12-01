@@ -81,10 +81,8 @@ class AuthController extends Controller
     return response()->json([
       'status' => 'Success',
       'message' => 'successfully login',
-      'mahasiswa' => $mahasiswa,
-      'data' => [
-        'user' => $mahasiswa,
-      ]
+      'data' => $mahasiswa,
+      'token' => $mahasiswa->token
     ], 200);
   }
 
@@ -94,7 +92,7 @@ class AuthController extends Controller
 
     return response()->json([
       'status' => 'Success',
-      'message' => $mahasiswa,
+      'mahasiswa' => $mahasiswa,
     ], 200);
   }
 }

@@ -56,7 +56,7 @@ class MahasiswaController extends Controller
       'success' => true,
       'message' => 'deleted!',
       'mhs_id' => $mahasiswa,
-    
+
     ]);
   }
   //
@@ -69,9 +69,7 @@ class MahasiswaController extends Controller
     return response()->json([
       'status' => 'Success',
       'message' => 'all users grabbed',
-      'data' => [
-        'users' => $mahasiswa,
-      ]
+      'mahasiswa' => $mahasiswa
     ], 200);
   }
 
@@ -82,10 +80,8 @@ class MahasiswaController extends Controller
     return response()->json([
       'status' => 'Success',
       'message' => 'get one user',
-      'data' => [
-        'data' => $mahasiswa,
-        'matakuliah' => $mahasiswa->matakuliah,
-      ]
+      'mahasiswa' => $mahasiswa,
+      'matakuliah' => $mahasiswa->matakuliah,
     ], 200);
   }
 }
